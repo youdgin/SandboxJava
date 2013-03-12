@@ -8,5 +8,6 @@ public class Main {
 		KeyboardReader keyboardReader = new KeyboardReader();
 		System.out.println(keyboardReader.readLine());
 	}
-
+	
+	
 }
