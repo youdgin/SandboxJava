@@ -19,13 +19,12 @@ public class Main {
 		
 		FileOutputStream fileOutputStream = null;
 		try {
-//			fileOutputStream = new FileOutputStream("Text.txt");
-//			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-//			outputStreamWriter.write(stringToWrite,0 , stringToWrite.length());
-//			
-			fileWriter = new FileWriter("Text.txt", true);
-			fileWriter.append(stringToWrite);
-			
+			fileOutputStream = new FileOutputStream("Text.txt");
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+			outputStreamWriter.write(stringToWrite,0 , stringToWrite.length());
+			outputStreamWriter.flush();
+//			fileWriter = new FileWriter("Text.txt", true);
+//			fileWriter.append(stringToWrite);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
