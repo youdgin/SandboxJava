@@ -1,38 +1,25 @@
 package main;
-import java.io.*;
-import file.FileTextReader;
-import keyboard.KeyboardReader;
-import sun.nio.cs.StreamEncoder;
+import read.file.FileTextReader;
+import read.keyboard.KeyboardReader;
+import write.file.FileTextWriter;
 
-@SuppressWarnings("restriction")
 public class Main {
 	public static void main(String[] args) {
-//		KeyboardReader keyboardReader = new KeyboardReader();
-//		
-//		System.out.println("Please enter the filename you wana read from");
-//		
-//		FileTextReader fileTextReader = new FileTextReader(keyboardReader.readLine());
-//		System.out.println(fileTextReader.fileRead());
-//		fileTextReader.close();
-		FileWriter fileWriter = null;
-		String stringToWrite = "Quisque id tortor et justo sagittis eleifend. \n";
+		KeyboardReader keyboardReader = new KeyboardReader();
 		
-		FileOutputStream fileOutputStream = null;
-		try {
-			fileOutputStream = new FileOutputStream("Text.txt");
-			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-			outputStreamWriter.write(stringToWrite,0 , stringToWrite.length());
-			outputStreamWriter.flush();
-//			fileWriter = new FileWriter("Text.txt", true);
-//			fileWriter.append(stringToWrite);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(1);
-		}
-//		System.out.println();
-//		System.out.println(fileTextReader.fileRead());
+		
+		System.out.println("Please enter the filename you wana write to and read from");
+		
+		String stringToWrite  = "\n Un nou rand in plus";
+		FileTextWriter fileTextWriter = new FileTextWriter(keyboardReader.readLine(), true);
+		fileTextWriter.write(stringToWrite, true);
+		
+		FileTextReader fileTextReader = new FileTextReader(fileTextWriter.file.getName());
+		System.out.println(fileTextReader.fileRead());
+		
+		
+		
+		
 	}
 	
 	

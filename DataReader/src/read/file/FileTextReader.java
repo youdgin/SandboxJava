@@ -1,4 +1,4 @@
-package file;
+package read.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 public class FileTextReader {
 	public File file;
 	private FileReader fileReader;
-	char[] cbuf;
+	public char[] cbuf;
 	public FileTextReader(String pathname) {
 		file = new File(pathname);
 		try {
@@ -22,8 +22,15 @@ public class FileTextReader {
 	}
 	
 	public char[] fileRead(){
+		return this.fileRead(false);
+		
+	}
+	
+	public char[] fileRead(boolean close){
 		try {
 			fileReader.read(cbuf);
+			if(close)
+				fileReader.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

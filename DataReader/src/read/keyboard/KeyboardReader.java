@@ -1,4 +1,4 @@
-package keyboard;
+package read.keyboard;
 
 import java.io.BufferedReader;
 import java.io.IOException;
