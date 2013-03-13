@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileTextReader {
-	File file;
-	FileReader fileReader;
+	public File file;
+	private FileReader fileReader;
 	char[] cbuf;
 	public FileTextReader(String pathname) {
 		file = new File(pathname);
@@ -29,6 +29,15 @@ public class FileTextReader {
 			e.printStackTrace();
 		}
 		return cbuf;
+	}
+	
+	public void close(){
+		try {
+			fileReader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
