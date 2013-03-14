@@ -9,14 +9,10 @@ public class FileTextWriter {
 	public File file;
 	
 	public FileTextWriter(String pathname) {
-		this.commonConstructor(pathname, false);
+		this(pathname, false);
 	}
 	
 	public FileTextWriter(String pathname, boolean append){
-		this.commonConstructor(pathname, append);
-	}
-	
-	private void commonConstructor(String pathname, boolean append){
 		file = new File(pathname);
 		try {
 			fileWriter = new FileWriter(file, append);
