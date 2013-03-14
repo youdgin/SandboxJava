@@ -17,9 +17,6 @@ public class Main {
 		FileTextReader fileTextReader = new FileTextReader(fileTextWriter.file.getName());
 		System.out.println(fileTextReader.fileRead());
 		
-		
-		
-		
 	}
 	
 	
