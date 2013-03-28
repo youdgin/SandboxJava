@@ -18,17 +18,16 @@ public class FileTextReader {
 			e.printStackTrace();
 		}
 //		Warning! not too big file here to not flip the int limits, need to rethink this
-		cbuf = new char[(int)file.length()];
 	}
 	
 	public char[] fileRead(){
 		return this.fileRead(false);
-		
 	}
 	
 	public char[] fileRead(boolean close){
+		cbuf = new char[(int)file.length()];
 		try {
-			fileReader.read(cbuf);
+			fileReader.read(cbuf, 0, cbuf.length);
 			if(close)
 				fileReader.close();
 		} catch (IOException e) {
@@ -38,14 +37,6 @@ public class FileTextReader {
 		return cbuf;
 	}
 	
-	public void close(){
-		try {
-			fileReader.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 
 }
