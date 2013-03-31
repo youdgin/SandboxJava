@@ -4,39 +4,36 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * @author Youdign
+ *
+ */
 public class FileTextWriter {
-	private FileWriter fileWriter;
 	public File file;
 	
-	public FileTextWriter(String pathname) {
-		this(pathname, false);
+	
+	public FileTextWriter(String pathname){
+		file = new File(pathname);
 	}
 	
-	public FileTextWriter(String pathname, boolean append){
-		file = new File(pathname);
+	/**
+	 * Appends string to the end of the text file.
+	 * @param string
+	 */
+	public void write(String string){
+		this.write(string, true);
+	}
+	
+	public void write (String string, boolean append){
+		FileWriter fileWriter;
 		try {
 			fileWriter = new FileWriter(file, append);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public void write(String string){
-		this.write(string, false);
-	}
-	
-	public void write (String string, boolean close){
-		try {
 			fileWriter.write(string);
-			fileWriter.flush();
-			if(close)
-				fileWriter.close();
+			fileWriter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 
 }

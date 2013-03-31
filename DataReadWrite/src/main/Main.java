@@ -3,26 +3,22 @@ package main;
 import read.file.FileTextReader;
 import read.keyboard.KeyboardReader;
 import write.file.FileTextWriter;
-//import read.file.FileTextReader;
-//import read.keyboard.KeyboardReader;
 
 public class Main {
 	public static void main(String[] args) {
+		
 		KeyboardReader keyboardReader = new KeyboardReader();
 		
-		System.out.println("Please enter the filename you wana write to and read from");
 		
-		FileTextWriter fileTextWriter = new FileTextWriter(keyboardReader.readLine(), true);
+		FileTextWriter fileTextWriter = new FileTextWriter(keyboardReader.readLine("Enter the filename you wana write to and read from"));
 		FileTextReader fileTextReader = new FileTextReader(fileTextWriter.file.getName());
 		
-		
-		
 		System.out.print(fileTextReader.fileRead());
 		
-		String stringToWrite  = "\nUn nou rand in plus";
-		fileTextWriter.write(stringToWrite, true);
+		String stringToWrite  = keyboardReader.readLine("\nEnter the text you wanna write to end of the file");
+		fileTextWriter.write(stringToWrite);
 		
-		System.out.print(fileTextReader.fileRead());
+		System.out.print("The new contents of the file are:\n" + String.valueOf(fileTextReader.fileRead()));
 		
 	}
 	

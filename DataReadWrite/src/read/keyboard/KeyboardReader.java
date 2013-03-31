@@ -19,5 +19,10 @@ public class KeyboardReader {
 		}
 		return null;
 	}
+	
+	public String readLine(String printLine){
+		System.out.println(printLine);
+		return this.readLine();
+	}
 
 }
