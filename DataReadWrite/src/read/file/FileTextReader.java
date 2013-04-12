@@ -18,20 +18,23 @@ public class FileTextReader {
 	public char[] fileRead(boolean append){
 //		Warning! not too big file here to not flip the int limits, need to rethink this
 		cbuf = new char[(int)file.length()];
+		char[] localCbuf = new char[(int)file.length()];
 		FileReader fileReader;
 		try {
 			fileReader = new FileReader(file.getName());
-			fileReader.read(cbuf, 0, cbuf.length);
+			fileReader.read(localCbuf, 0, cbuf.length);
 			fileReader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//		With this clone you break the reference of array cbuf into the new FileReader object thus 
+//		With this clone we break the reference of array cbuf into the new FileReader object thus 
 //		making fileReader eligible for garbage collection.
-		cbuf = cbuf.clone();
+		cbuf = localCbuf.clone();
 		return cbuf;
 	}
-	
+	public void setpathname(String pathname){
+		this.file = new File(pathname);
+	}
 
 
 }

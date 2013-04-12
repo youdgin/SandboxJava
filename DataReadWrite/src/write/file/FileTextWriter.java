@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  */
 public class FileTextWriter {
-	public File file;
+	private File file;
 	
 	
 	public FileTextWriter(String pathname){
@@ -34,6 +34,14 @@ public class FileTextWriter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public File file(){
+		return this.file;
+	}
+	
+	public void setpathname(String pathname){
+		this.file = new File(pathname);
 	}
 
 }
